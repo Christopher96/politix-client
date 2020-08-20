@@ -1,7 +1,17 @@
-@import "~antd/dist/antd.css";
+:root {
+  --color-primary: #1da57a;
+  --color-secondary: #ffffff;
+  --color-additional: #ffce00;
+}
 
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+#layout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
