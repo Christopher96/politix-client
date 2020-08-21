@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { PageHeader, Button, Avatar, Descriptions } from "antd";
+import { PageHeader, Button, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
 import "./Header.scss";
@@ -9,11 +9,12 @@ interface IState {}
 
 const login = [
   <Avatar
+    key="3"
     style={{ backgroundColor: "var(--color-primary)" }}
     icon={<UserOutlined />}
   />,
-  <Descriptions.Item label="Product">Not logged in</Descriptions.Item>,
-  <Button>Log in</Button>,
+  <span key="2">Not logged in</span>,
+  <Button key="1">Log in</Button>,
 ];
 
 export default class Header extends Component<IProps, IState> {

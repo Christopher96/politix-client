@@ -1,10 +1,28 @@
 .post {
-  width: 50em;
-  margin: 2em !important;
+  margin: 3em !important;
 }
 
-.ant-card-meta-title {
-  .post-info {
-    font-weight: 300;
+.post-container {
+  width: 50em;
+
+  .post-author {
+    font-size: 1.4rem;
+
+    .ant-card-meta-title {
+      .post-title-info {
+        font-weight: 100;
+      }
+    }
+  }
+  .post-content {
+    font-size: 1.2rem;
+  }
+
+  .ant-comment-actions li span {
+    font-size: 1rem;
+  }
+
+  .date-created {
+    float: right;
   }
 }

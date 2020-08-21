@@ -28,8 +28,8 @@ export default class App extends Component {
                 <Route component={NotFound} />
               </Switch>
             </Route>
-            <Footer></Footer>
           </Content>
+          <Footer></Footer>
         </Layout>
       </>
     );

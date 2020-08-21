@@ -7,6 +7,7 @@ export interface IPost {
   createdBy: IUser;
   created: string;
   content: string;
+  comments: IComment[];
 }
 
 export interface IComment {

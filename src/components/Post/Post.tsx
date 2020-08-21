@@ -2,34 +2,45 @@ import React, { Component } from "react";
 import { EllipsisOutlined, UserOutlined } from "@ant-design/icons";
 
 import "./Post.scss";
-import { Card, Avatar } from "antd";
+import { Card, Avatar, Comment } from "antd";
 import { IPost } from "../../context/interfaces";
+import CommentActions from "./CommentActions/CommentActions";
+import CommentListContainer from "./CommentListContainer/CommentListContainer";
 
 const { Meta } = Card;
 
-interface IState {}
+interface IState {
+  liked: boolean;
+  interacted: boolean;
+  likes: number;
+  dislikes: number;
+}
 
 export default class Post extends Component<IPost, IState> {
   render() {
     const { name } = this.props.createdBy;
-    const { content, created } = this.props;
+    const { content, created, comments } = this.props;
 
     return (
       <Card
         className="post"
-        extra={[<span>{created}</span>]}
+        extra={
+          <Comment
+            className="post-container"
+            actions={[<CommentActions created={created} />]}
+            author={
+              <span className="post-author">
+                <a>{name}</a>
+                <span className="post-title-info"> posted their opinion</span>
+              </span>
+            }
+            avatar={<Avatar icon={<UserOutlined />} />}
+            content={<p className="post-content">{content}</p>}
+          />
+        }
         actions={[<EllipsisOutlined key="ellipsis" />]}
       >
-        <Meta
-          avatar={<Avatar icon={<UserOutlined />} />}
-          title={
-            <span>
-              {name}
-              <span className="post-info"> posted their opinion</span>
-            </span>
-          }
-          description={content}
-        />
+        <CommentListContainer comments={comments} />
       </Card>
     );
   }
